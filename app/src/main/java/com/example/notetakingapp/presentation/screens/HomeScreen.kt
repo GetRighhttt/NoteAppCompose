@@ -28,10 +28,7 @@ fun HomeScreen(
             TopAppBarAbstraction()
         },
         bottomBar = {
-            BottomAppBarAbstraction(modifier = Modifier.fillMaxWidth())
-        },
-        floatingActionButton = {
-            FloatingActionButtonAbstraction()
+            BottomAppBarAbstraction()
         }
     ) { innerPadding ->
         Surface(

@@ -3,8 +3,10 @@ package com.example.notetakingapp.presentation.widgets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
@@ -83,7 +85,19 @@ fun BottomAppBarAbstraction(modifier: Modifier = Modifier) =
                     contentDescription = stringResource(R.string.settings)
                 )
             }
-        }
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Default.List,
+                    contentDescription = stringResource(R.string.list)
+                )
+            }
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = stringResource(R.string.delete)
+                )
+            }
+        }, floatingActionButton = { FloatingActionButtonAbstraction() }
     )
 
 @Composable
