@@ -22,5 +22,4 @@ class NoteTakingViewModel: ViewModel() {
     fun removeNote(note: Note) {
         _noteList.value = _noteList.value.minus(note)
     }
-    fun getAllNotes(): List<Note> = _noteList.value
 }
