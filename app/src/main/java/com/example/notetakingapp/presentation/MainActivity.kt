@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.notetakingapp.data.NoteDataSource
 import com.example.notetakingapp.data.model.Note
@@ -16,10 +19,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             NoteTakingAppTheme {
                 MyApp {
+                    val notes = remember { mutableStateListOf<Note>() }
                     HomeScreen(
-                        notes = NoteDataSource().loadNotes(),
-                        onAddNote = {},
-                        onRemoveNote = {})
+                        notes = notes,
+                        onAddNote = { notes.add(it)},
+                        onRemoveNote = { notes.remove(it) })
                 }
             }
         }
