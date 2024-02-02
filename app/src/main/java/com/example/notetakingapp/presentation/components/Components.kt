@@ -8,6 +8,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.ElevatedButton
@@ -36,7 +38,8 @@ fun NoteInputText(
     label: String,
     maxLines: Int = 1,
     onTextChange: (String) -> Unit,
-    onImeAction: () -> Unit = {}
+    onImeAction: () -> Unit = {},
+    icon: @Composable (() -> Unit)?
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -51,7 +54,8 @@ fun NoteInputText(
         keyboardActions = KeyboardActions(onDone = {
             onImeAction()
             keyboardController?.hide()
-        })
+        }),
+        leadingIcon = icon
     )
 }
 
