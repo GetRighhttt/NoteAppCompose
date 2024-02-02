@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.notetakingapp.data.NoteDataSource
+import com.example.notetakingapp.data.model.Note
 import com.example.notetakingapp.presentation.screens.HomeScreen
 import com.example.notetakingapp.ui.theme.NoteTakingAppTheme
 
@@ -14,7 +16,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             NoteTakingAppTheme {
                 MyApp {
-                    HomeScreen()
+                    HomeScreen(
+                        notes = NoteDataSource().loadNotes(),
+                        onAddNote = {},
+                        onRemoveNote = {})
                 }
             }
         }
