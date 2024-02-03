@@ -1,4 +1,4 @@
-package com.example.notetakingapp.data
+package com.example.notetakingapp.data.localdatasource
 
 import com.example.notetakingapp.data.model.Note
 

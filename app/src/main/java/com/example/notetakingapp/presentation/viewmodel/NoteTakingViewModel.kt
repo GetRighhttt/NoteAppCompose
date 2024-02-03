@@ -1,12 +1,15 @@
 package com.example.notetakingapp.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.notetakingapp.data.NoteDataSource
+import com.example.notetakingapp.data.localdatasource.NoteDataSource
 import com.example.notetakingapp.data.model.Note
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class NoteTakingViewModel: ViewModel() {
+@HiltViewModel
+class NoteTakingViewModel @Inject constructor(): ViewModel() {
     private val _noteList = MutableStateFlow<List<Note>>(emptyList())
     val noteList = _noteList.asStateFlow()
 

@@ -29,7 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.notetakingapp.R
-import com.example.notetakingapp.data.NoteDataSource
+import com.example.notetakingapp.data.localdatasource.NoteDataSource
 import com.example.notetakingapp.data.model.Note
 import com.example.notetakingapp.presentation.components.NoteButton
 import com.example.notetakingapp.presentation.components.NoteInputText
