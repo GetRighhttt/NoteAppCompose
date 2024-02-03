@@ -79,8 +79,8 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
 
     // dagger-hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     // more coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")

@@ -28,6 +28,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.notetakingapp.data.model.Note
+import com.example.notetakingapp.domain.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -102,7 +103,7 @@ fun NoteRow(
             Text(text = note.title, style = MaterialTheme.typography.bodyLarge)
             Text(text = note.entry, style = MaterialTheme.typography.bodyMedium)
             Text(
-                text = note.entryDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                text = formatDate(note.entryDate.time),
                 style = MaterialTheme.typography.labelMedium
             )
         }

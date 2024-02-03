@@ -41,7 +41,7 @@ fun MyApp(content: @Composable () -> Unit) {
     }
 }
 
-@SuppressLint("StateFlowValueCalledInComposition")
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun NotesApp(noteViewModel: NoteTakingViewModel = viewModel()) {
     val noteList = noteViewModel.noteList.collectAsState().value

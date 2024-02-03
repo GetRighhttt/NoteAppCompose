@@ -127,7 +127,7 @@ fun HomeScreen(
                 LazyColumn {
                     items(notes) { note ->
                         NoteRow(note = note, onNoteClicked = {
-                            onRemoveNote(note)
+                            onRemoveNote(it)
                         })
                     }
                 }

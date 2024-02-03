@@ -1,6 +1,5 @@
 package com.example.notetakingapp.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notetakingapp.data.localdatasource.NoteDataSource
@@ -15,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteTakingViewModel @Inject constructor(private val repository: Repository): ViewModel() {
+class NoteTakingViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     private val _noteList = MutableStateFlow<List<Note>>(emptyList())
     val noteList = _noteList.asStateFlow()
 
@@ -25,21 +24,17 @@ class NoteTakingViewModel @Inject constructor(private val repository: Repository
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAllNotes().distinctUntilChanged()
                 .collect { listOfNotes ->
-                    if (listOfNotes.isEmpty()) {
-                        Log.d("Empty", ": Empty list")
-                    }else {
-                        _noteList.value = listOfNotes
-                    }
-
+                    _noteList.value = listOfNotes
                 }
-
         }
-        // noteList.addAll(NotesDataSource().loadNotes())
     }
 
-    fun addNote(note: Note) = viewModelScope.launch { repository.addNote(note) }
-    fun insertNote(note: Note) = viewModelScope.launch { repository.updateNote(note)}
-    fun deleteNote(note: Note) = viewModelScope.launch { repository.deleteNote(note) }
-   fun deleteAllNotes() = viewModelScope.launch { repository.deleteAllNotes() }
+    fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO) { repository.addNote(note) }
+    fun updateNote(note: Note) =
+        viewModelScope.launch(Dispatchers.IO) { repository.updateNote(note) }
+
+    fun deleteNote(note: Note) =
+        viewModelScope.launch(Dispatchers.IO) { repository.deleteNote(note) }
+    fun deleteAllNotes() = viewModelScope.launch(Dispatchers.IO) { repository.deleteAllNotes() }
 
 }

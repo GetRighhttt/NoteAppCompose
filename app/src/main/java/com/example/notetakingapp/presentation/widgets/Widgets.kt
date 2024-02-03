@@ -23,11 +23,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.notetakingapp.R
+import com.example.notetakingapp.presentation.viewmodel.NoteTakingViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -66,7 +69,7 @@ fun TopAppBarAbstraction(modifier: Modifier = Modifier) =
     )
 
 @Composable
-fun BottomAppBarAbstraction(modifier: Modifier = Modifier) {
+fun BottomAppBarAbstraction(modifier: Modifier = Modifier, noteViewModel: NoteTakingViewModel = viewModel()) {
     val context = LocalContext.current
 
     BottomAppBar(
@@ -107,7 +110,8 @@ fun BottomAppBarAbstraction(modifier: Modifier = Modifier) {
                 )
             }
             IconButton(onClick = {
-                Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
+                noteViewModel.deleteAllNotes()
+                Toast.makeText(context, "Deleted All Notes", Toast.LENGTH_SHORT).show()
 
             }) {
                 Icon(
