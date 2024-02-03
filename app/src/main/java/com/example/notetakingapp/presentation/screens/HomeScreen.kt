@@ -77,7 +77,6 @@ fun HomeScreen(
                     label = stringResource(id = R.string.title),
                     onTextChange = { text ->
                         if (text.all { char ->
-                                // setting characters
                                 char.isLetter() || char.isWhitespace()
                             }) title = text
                     },
@@ -119,7 +118,6 @@ fun HomeScreen(
                         }
                     })
 
-                // spacing
                 Spacer(modifier = Modifier.height(25.dp))
                 Divider(color = MaterialTheme.colorScheme.onBackground)
                 Spacer(modifier = Modifier.height(25.dp))
