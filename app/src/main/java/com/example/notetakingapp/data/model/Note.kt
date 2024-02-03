@@ -9,7 +9,7 @@ import java.util.UUID
 
 @Entity(tableName = "notes_table")
 data class Note(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: UUID = UUID.randomUUID(), // creates random universal unique IDs
 
     @ColumnInfo(name = "Note_title")

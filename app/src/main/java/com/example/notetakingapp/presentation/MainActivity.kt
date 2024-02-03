@@ -16,6 +16,7 @@ import com.example.notetakingapp.presentation.screens.HomeScreen
 import com.example.notetakingapp.presentation.viewmodel.NoteTakingViewModel
 import com.example.notetakingapp.ui.theme.NoteTakingAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -44,10 +45,11 @@ fun MyApp(content: @Composable () -> Unit) {
 @Composable
 fun NotesApp(noteViewModel: NoteTakingViewModel = viewModel()) {
     val noteList = noteViewModel.noteList.collectAsState().value
-    HomeScreen(
-        notes = noteList,
-        onAddNote = { noteViewModel.addNote(it)},
-        onRemoveNote = { noteViewModel.removeNote(it) })
+        HomeScreen(
+            notes = noteList,
+            onAddNote = { noteViewModel.addNote(it)},
+            onRemoveNote = { noteViewModel.deleteNote(it) })
+
 
 }
 
