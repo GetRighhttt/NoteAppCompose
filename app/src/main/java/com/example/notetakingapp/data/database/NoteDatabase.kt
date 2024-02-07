@@ -9,6 +9,6 @@ import com.example.notetakingapp.domain.util.UUIDConverter
 
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverter::class, UUIDConverter::class)
-abstract class NoteDatabase: RoomDatabase() {
+abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDAO
 }

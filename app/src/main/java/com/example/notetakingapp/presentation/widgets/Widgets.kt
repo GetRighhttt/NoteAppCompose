@@ -69,7 +69,10 @@ fun TopAppBarAbstraction(modifier: Modifier = Modifier) =
     )
 
 @Composable
-fun BottomAppBarAbstraction(modifier: Modifier = Modifier, noteViewModel: NoteTakingViewModel = viewModel()) {
+fun BottomAppBarAbstraction(
+    modifier: Modifier = Modifier,
+    noteViewModel: NoteTakingViewModel = viewModel()
+) {
     val context = LocalContext.current
 
     BottomAppBar(

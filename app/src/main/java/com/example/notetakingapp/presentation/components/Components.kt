@@ -96,7 +96,7 @@ fun NoteRow(
     ) {
         Column(
             modifier = modifier
-                .clickable { onNoteClicked(note)}
+                .clickable { onNoteClicked(note) }
                 .padding(horizontal = 14.dp, vertical = 16.dp),
             horizontalAlignment = Alignment.Start
         ) {

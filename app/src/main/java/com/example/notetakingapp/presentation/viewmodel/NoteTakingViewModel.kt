@@ -35,6 +35,7 @@ class NoteTakingViewModel @Inject constructor(private val repository: Repository
 
     fun deleteNote(note: Note) =
         viewModelScope.launch(Dispatchers.IO) { repository.deleteNote(note) }
+
     fun deleteAllNotes() = viewModelScope.launch(Dispatchers.IO) { repository.deleteAllNotes() }
 
 }

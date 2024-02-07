@@ -11,10 +11,10 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val noteDao: NoteDAO) {
-    suspend fun addNote(note: Note) = withContext(Dispatchers.IO) {noteDao.insert(note) }
-    suspend fun updateNote(note: Note) = withContext(Dispatchers.IO) {noteDao.update(note)}
-    suspend fun deleteNote(note: Note) = withContext(Dispatchers.IO) {noteDao.deleteNote(note) }
-    suspend fun deleteAllNotes() = withContext(Dispatchers.IO) {noteDao.deleteAll() }
+    suspend fun addNote(note: Note) = withContext(Dispatchers.IO) { noteDao.insert(note) }
+    suspend fun updateNote(note: Note) = withContext(Dispatchers.IO) { noteDao.update(note) }
+    suspend fun deleteNote(note: Note) = withContext(Dispatchers.IO) { noteDao.deleteNote(note) }
+    suspend fun deleteAllNotes() = withContext(Dispatchers.IO) { noteDao.deleteAll() }
     fun getAllNotes(): Flow<List<Note>> =
         noteDao.getNotes().flowOn(Dispatchers.IO).conflate()
 }

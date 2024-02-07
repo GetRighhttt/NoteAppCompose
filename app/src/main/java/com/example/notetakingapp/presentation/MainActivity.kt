@@ -41,17 +41,13 @@ fun MyApp(content: @Composable () -> Unit) {
     }
 }
 
-@SuppressLint("SuspiciousIndentation")
 @Composable
 fun NotesApp(noteViewModel: NoteTakingViewModel = viewModel()) {
     val noteList = noteViewModel.noteList.collectAsState().value
-        HomeScreen(
-            notes = noteList,
-            onAddNote = { noteViewModel.addNote(it)},
-            onRemoveNote = { noteViewModel.deleteNote(it) }
-        )
-
-
+    HomeScreen(
+        notes = noteList,
+        onAddNote = { noteViewModel.addNote(it) },
+        onRemoveNote = { noteViewModel.deleteNote(it) })
 }
 
 @Preview(showBackground = true)
