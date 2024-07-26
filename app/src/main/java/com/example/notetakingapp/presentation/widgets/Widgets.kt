@@ -40,6 +40,7 @@ import com.example.notetakingapp.presentation.viewmodel.NoteTakingViewModel
 fun TopAppBarAbstraction(modifier: Modifier = Modifier) {
 
     val openDialog = remember { mutableStateOf(false) }
+    val openLeftDialog = remember { mutableStateOf(false) }
 
     CenterAlignedTopAppBar(
         colors =
@@ -64,7 +65,7 @@ fun TopAppBarAbstraction(modifier: Modifier = Modifier) {
             }
         },
         actions = {
-            IconButton(onClick = {}) {
+            IconButton(onClick = { openLeftDialog.value = true }) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = stringResource(R.string.add)
@@ -90,6 +91,29 @@ fun TopAppBarAbstraction(modifier: Modifier = Modifier) {
                 TextButton(
                     onClick = {
                         openDialog.value = false
+                    }
+                ) {
+                    Text("Dismiss")
+                }
+            })
+    }
+    if (openLeftDialog.value) {
+        AlertDialog(onDismissRequest = { openLeftDialog.value = false },
+            title = { Text(text = "Add Icon") },
+            text = { Text(text = "Add New Material!") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        openLeftDialog.value = false
+                    }
+                ) {
+                    Text("Confirm")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        openLeftDialog.value = false
                     }
                 ) {
                     Text("Dismiss")
